@@ -21,7 +21,7 @@ class Bot(Client):
 
     def __init__(self):
         super().__init__(
-            name='DovizBot',
+            name='Saptula-Multi-Bot',
             api_id=APP_ID,
             api_hash=API_HASH,
             bot_token=BOT_TOKEN,
