@@ -4,7 +4,7 @@ from KekikSpatula import Ezan
 import json
 
 
-@Bot.on_message(filters.command('ezan'))
+@Client.on_message(filters.command('ezan'))
 async def ezangetir(bot, message):
     try:
         ev = unidecode(message.text).split()
