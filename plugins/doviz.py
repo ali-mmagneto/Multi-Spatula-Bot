@@ -3,11 +3,12 @@ from pyrogram import Client, filters
 from KekikSpatula import Doviz
 import json
 
-dovizler = Doviz()
+
 
 @Client.on_message(filters.command("doviz"))
 async def dovizgetir(bot, message):
     try:
+        dovizler = Doviz()
         sayi = 4 # Benim (:d) Gerekli Bulduğum ilk 4 Doviz Bilgisini Getirir. 
         text = "Dövizler:\n"
         say = 0
