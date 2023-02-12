@@ -19,7 +19,8 @@ async def havaa(bot, message):
         for i in json.loads(istek.gorsel())["veri"]:
             fahrenayt1 = re.findall(r'\d+', f"{i['derece']}")
             fahrenayt =  f"{fahrenayt1[0]}"
-            text += f"{i['yer']} İçin:\nHava Durumu: `{i['derece']}` {fahrenayt} \nVakit: `{i['gun']}`"
+            derece = (int(fahrenayt) - 32) / float(1.8) 
+            text += f"{i['yer']} İçin:\nHava Durumu: `{i['derece']}`-`{derece}°C` \nVakit: `{i['gun']}`"
         await bot.send_message(
            chat_id=message.chat.id,
            text=text)
