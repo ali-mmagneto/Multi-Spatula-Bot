@@ -4,7 +4,7 @@ from KekikSpatula import HavaDurumu
 from unidecode import unidecode
 import json 
 
-@Bot.on_message(filters.command('hava'))
+@Client.on_message(filters.command('hava'))
 async def havaa(bot, message):
     try:
         ev = unidecode(message.text).split()
