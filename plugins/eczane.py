@@ -19,4 +19,4 @@ async def eczanegetir(bot, message):
             text += f"{i['ad']} {i['adres']}"
         await message.reply_text(text)
     except Exception as e:
-        await message.reply_text("`{e}`")
+        await message.reply_text(f"`{e}`")
