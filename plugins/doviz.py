@@ -18,4 +18,4 @@ async def dovizgetir(bot, message):
             await bot.send_message(message.chat.id, text)
             return
     except Exception as e:
-        await bot.send_message(message.chat.id, "`{e}`"
+        await bot.send_message(message.chat.id, "`{e}`")
