@@ -5,7 +5,7 @@ import json
 
 
 
-@Bot.on_message(filters.command("doviz"))
+@Client.on_message(filters.command("doviz"))
 async def dovizzz(bot, message):
     doviz_ = Doviz()
     text = "**Birim / Gişe Alış / Gişe Satış**\n\n"
