@@ -2,7 +2,8 @@
 from pyrogram import Client, filters
 from KekikSpatula import HavaDurumu
 from unidecode import unidecode
-import json 
+import json
+import re
 
 @Client.on_message(filters.command('hava'))
 async def havaa(bot, message):
@@ -17,7 +18,7 @@ async def havaa(bot, message):
         text = ""
         for i in json.loads(istek.gorsel())["veri"]:
             fahrenayt1 = f"{i['derece']}"
-            fahrenayt = int(fahrenayt1)
+            fahrenayt = re.findall(r'\d+', f"{fahrenayt1}")
             text += f"{i['yer']} İçin:\nHava Durumu: `{i['derece']}` {fahrenayt} \nVakit: `{i['gun']}`"
         await bot.send_message(
            chat_id=message.chat.id,
