@@ -5,18 +5,10 @@ import json
 
 
 
-@Client.on_message(filters.command("doviz"))
-async def dovizgetir(bot, message):
-    try:
-        dovizler = Doviz()
-        sayi = 4 # Benim (:d) Gerekli Bulduğum ilk 4 Doviz Bilgisini Getirir. 
-        text = "Dövizler:\n"
-        say = 0
-        for i in json.loads(dovizler.gorsel())["veri"]:
-            say += 1
-            text += f"Birim: {i['birim']}\nAlış: {i['Gişe Alış']} TL\nSatış: {i['Gişe Satış']} Tl\n\n"
-        if say == int(sayi):
-            await bot.send_message(message.chat.id, text)
-            return
-    except Exception as e:
-        await bot.send_message(message.chat.id, "`{e}`")
+@Bot.on_message(filters.command("doviz"))
+async def dovizzz(bot, message):
+    doviz_ = Doviz()
+    text = "**Birim / Gişe Alış / Gişe Satış**\n\n"
+    for key in json.loads(doviz_.gorsel())["veri"]:
+        text += f"**{key['birim']}**: {key['Gişe Alış']} TL - {key['Gişe Satış']}\n"
+    await message.reply_text(text) 
