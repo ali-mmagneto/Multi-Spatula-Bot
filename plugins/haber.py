@@ -4,7 +4,7 @@ from KekikSpatula import SonDakika
 import json
 
 
-@Bot.on_message(filters.command("haber"))
+@Client.on_message(filters.command("haber"))
 async def habergetir(bot, message):
     haber = SonDakika()
     sayi = 1
