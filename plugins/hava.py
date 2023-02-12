@@ -17,9 +17,9 @@ async def havaa(bot, message):
         istek = HavaDurumu(il, ilce)
         text = ""
         for i in json.loads(istek.gorsel())["veri"]:
-            fahrenayt1 = re.findall(r'\d+', f"{i['derece']}")
-            fahrenayt =  f"{fahrenayt1[0]}"
-            derece = (int(fahrenayt) - 32) / float(1.8) 
+            fahrenayt1 = re.findall(r'\d+', f"{i['derece']}") # Api den çektiğimiz hava durumu bilgisinden Fahrenayt birimindeki sayıyı String formattan çekiyoruz.
+            fahrenayt =  f"{fahrenayt1[0]}" # list olarak çektiğimiz verinin ilk objesi olan Derece bilgisini fahrenayta tanımlıyoruz. 
+            derece = (int(fahrenayt) - 32) / float(1.8) # Fahrenaytı Celciusa çeviriyoruz bunu yapmak için 32 ile çıkartıp 1.8'e bölüyoruz.
             text += f"{i['yer']} İçin:\nHava Durumu: `{i['derece']}` - `{derece}°C` \nVakit: `{i['gun']}`"
         await bot.send_message(
            chat_id=message.chat.id,
