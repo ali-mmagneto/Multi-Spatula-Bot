@@ -1,3 +1,4 @@
+# :d
 from pyrogram import Client, filters
 from KekikSpatula import HavaDurumu
 from unidecode import unidecode
