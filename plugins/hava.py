@@ -20,7 +20,7 @@ async def havaa(bot, message):
             fahrenayt1 = re.findall(r'\d+', f"{i['derece']}")
             fahrenayt =  f"{fahrenayt1[0]}"
             derece = (int(fahrenayt) - 32) / float(1.8) 
-            text += f"{i['yer']} İçin:\nHava Durumu: `{i['derece']}`-`{derece}°C` \nVakit: `{i['gun']}`"
+            text += f"{i['yer']} İçin:\nHava Durumu: `{i['derece']}` - `{derece}°C` \nVakit: `{i['gun']}`"
         await bot.send_message(
            chat_id=message.chat.id,
            text=text)
