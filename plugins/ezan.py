@@ -9,7 +9,7 @@ async def ezangetir(bot, message):
     try:
         ev = unidecode(message.text).split()
         if len(ev) < 2:
-            await bot.send_message(message.chat.id, "Hatalı Kullanım :/ Doğru Kullanım Şu Şekilde:\n\n/ezan İstanbul") 
+            await bot.send_message(message.chat.id, "Hatalı Kullanım :/ Doğru Kullanım Şu Şekilde:\n\n`/ezan İstanbul`") 
             return
         il = ev[1]
         istek = Ezan(il)
