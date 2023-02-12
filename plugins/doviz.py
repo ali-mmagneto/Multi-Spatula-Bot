@@ -7,8 +7,8 @@ import json
 
 @Client.on_message(filters.command("doviz"))
 async def dovizzz(bot, message):
-    doviz_ = Doviz()
-    text = "**Birim / Gişe Alış / Gişe Satış**\n\n"
-    for key in json.loads(doviz_.gorsel())["veri"]:
-        text += f"**{key['birim']}**: {key['Gişe Alış']} TL - {key['Gişe Satış']}\n"
+    dovizler = Doviz()
+    text = "**Dövizler:**\n\n"
+    for i in json.loads(dovizler.gorsel())["veri"]:
+        text += f"**Birim**: `{i['birim']}`\n**Alış**: `{i['Gişe Alış']} TL`\nSatış: `{i['Gişe Satış']} TL`\n"
     await message.reply_text(text) 
