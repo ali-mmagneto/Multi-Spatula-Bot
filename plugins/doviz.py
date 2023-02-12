@@ -6,9 +6,9 @@ import json
 
 
 @Client.on_message(filters.command("doviz"))
-async def dovizzz(bot, message):
+async def dovizgetir(bot, message):
     dovizler = Doviz()
-    sayi = 4
+    sayi = 4 # benim (:d) gerekli bulduğum döviz sayısı.
     say = 0
     text = "**Dövizler:**\n\n"
     for i in json.loads(dovizler.gorsel())["veri"]:
