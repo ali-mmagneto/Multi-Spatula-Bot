@@ -2,7 +2,7 @@
 from pyrogram import Client, filters 
 from KekikSpatula import Ezan
 import json
-
+from unidecode import unidecode
 
 @Client.on_message(filters.command('ezan'))
 async def ezangetir(bot, message):
