@@ -13,6 +13,6 @@ async def dovizgetir(bot, message):
     for i in json.loads(dovizler.gorsel())["veri"]:
         say += 1
         text += f"Birim: {i['birim']}\nAlış: {i['Gişe Alış']} TL\nSatış: {i['Gişe Satış']} Tl\n\n"
-    if say == sayi:
-        await message.reply_text(text)
+    if say == int(sayi):
+        await bot.send_message(message.chat.id, text)
         return
