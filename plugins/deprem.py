@@ -12,7 +12,7 @@ async def depremgetir(bot, message):
         else:
             sayi =  link[1]
         deprem = SonDepremler()
-        text = "**Depremler**:"
+        text = "**Depremler**:\n\n"
         say = 0
         for i in json.loads(deprem.gorsel())["veri"]:
             text += f"Yer: [{i['yer']}]('https://maps.google.com/maps?q=' + '{i['enlem']}' + ',' + '{i['boylam']}')\nDerinlik: {i['derinlik']}\nBüyüklük: {i['ml']}\nTarih: {i['tarih']} {i['saat']}\n\n"
