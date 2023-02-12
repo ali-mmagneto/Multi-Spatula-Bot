@@ -18,7 +18,7 @@ async def depremgetir(bot, message):
             enlem = f"{i['enlem']}"
             boylam = f"{i['boylam']}"
             adresurl = f"https://maps.google.com/maps?q={enlem},{boylam}"
-            text += f"Yer: [{i['yer']}]({adresurl})\nDerinlik: {i['derinlik']}\nBüyüklük: {i['ml']}\nTarih: {i['tarih']} {i['saat']}\n\n"
+            text += f"**Yer**: [{i['yer']}]({adresurl})\n**Derinlik**: {i['derinlik']}\n**Büyüklük**: {i['ml']}\n**Tarih**: {i['tarih']} {i['saat']}\n\n"
             say += 1
             if int(say) == int(sayi):
                 await message.reply_text(text)
