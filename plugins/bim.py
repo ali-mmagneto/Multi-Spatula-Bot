@@ -14,5 +14,6 @@ async def bimgetir(bot, message):
                 chat_id=message.chat.id, 
                 photo=photo,
                 caption=text)
+            text = ""
     except Exception as e:
         await bot.send_message(message.chat.id, f"`{e}`")
