@@ -1,4 +1,4 @@
 pyrogram
 TgCrypto
-git+https://github.com/ali-mmagneto/KekikSpatula
+KekikSpatula
 unidecode
