@@ -9,7 +9,7 @@ async def havaa(bot, message):
     try:
         ev = unidecode(message.text).split()
         if len(ev) < 3:
-            await bot.send_message(message.chat.id, "Hatalı Kullanım :/ Doğru Kullanım Şu Şekilde:\n\n/hava İstanbul Avcılar") 
+            await bot.send_message(message.chat.id, "Hatalı Kullanım :/ Doğru Kullanım Şu Şekilde:\n\n`/hava İstanbul Avcılar`") 
             return
         il = ev[1]
         ilce = ev[2]
