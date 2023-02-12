@@ -5,7 +5,7 @@ import json
 
 dovizler = Doviz()
 
-@Bot.on_message(filters.command("doviz"))
+@Client.on_message(filters.command("doviz"))
 async def dovizgetir(bot, message):
     sayi = 4 # Benim (:d) Gerekli Bulduğum ilk 4 Doviz Bilgisini Getirir. 
     text = "Dövizler:\n"
