@@ -30,6 +30,5 @@ async def imdbgetir(bot, message):
             chat_id = message.chat.id, 
             photo = photo, 
             caption = text)
-        await message.reply_text(caption)
     except Exception as e:
         await message.reply_text(f"`{e}`")
