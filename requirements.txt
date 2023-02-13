@@ -3,3 +3,4 @@ TgCrypto
 KekikSpatula
 unidecode
 PyMovieDb
+googletrans
