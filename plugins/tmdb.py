@@ -27,5 +27,6 @@ async def tmdbgetir(bot, message):
                 chat_id = message.chat.id,
                 photo = poster,
                 caption = text)
+            text = ""
     except Exception as e:
         await message.reply_text(f"`{e}`") 
