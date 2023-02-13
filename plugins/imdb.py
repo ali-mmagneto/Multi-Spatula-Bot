@@ -14,7 +14,12 @@ async def imdbgetir(bot, message):
         imdbbilgi = IMDB()
         istek = imdbbilgi.get_by_name(aranacak, tv=False)
         data = json.loads(istek)
-        text = f"{data['name']}\n\{data['description']}" 
-        await message.reply_text(text)
+        imdburl = f"{data['url']}"
+        photo = f"{data['poster']}"
+        text = f"**İsim**: [{data['name']}](imdburl)\n**Konu**: `{data['description']}`\n**Yapım Tarihi**: `{data['review']['dateCreated']}`\n**İmdb Puanı**: `{data['rating']['ratingValue']}`" 
+        await bot.send_photo(
+            chat_id = message.chat.id, 
+            photo = photo, 
+            caption = text)
     except Exception as e:
         await message.reply_text(f"`{e}`")
