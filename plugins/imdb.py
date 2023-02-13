@@ -13,11 +13,13 @@ async def imdbgetir(bot, message):
         else:
             aranacak = mes[1]
         imdbbilgi = IMDB()
-        istek = imdbbilgi.get_by_name(aranacak, tv=True)
+        istek = imdbbilgi.get_by_name(aranacak, tv=False)
         data = json.loads(istek)
         caption = f"{istek}"
         text = ""
-        oyuncular = "Bilinmiyor"
+        oyuncular = ""
+        for actors in data["actor"]:
+            oyuncular += f"`{actors['name']}`, "
         ceviri = Translator()
         konu_temp = f"{data['description']}"
         konu = ceviri.translate(konu_temp, dest='tr')
