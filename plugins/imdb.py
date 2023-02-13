@@ -15,7 +15,7 @@ async def imdbgetir(bot, message):
         istek = imdbbilgi.get_by_name(aranacak, tv=False)
         datalar = json.loads(istek)
         text = ""
-        for data in datalar:
+        for data in datalar[0]:
             imdburl = f"{data['url']}"
             photo = f"{data['poster']}"
             oyuncular = f"`{data['actor']['name']}` "
