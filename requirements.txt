@@ -4,3 +4,4 @@ KekikSpatula
 unidecode
 PyMovieDb
 googletrans==3.1.0a0
+pillow
