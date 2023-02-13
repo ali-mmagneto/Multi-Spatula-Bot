@@ -19,7 +19,10 @@ async def imdbgetir(bot, message):
         text = ""
         oyuncular = ""
         for actors in data["actor"]:
-            oyuncular += f"`{actors['name']}`, "
+            if data["actor"] == 0:
+                oyuncular += "Bilinmiyor"
+            else:
+                oyuncular += f"`{actors['name']}`, "
         ceviri = Translator()
         konu_temp = f"{data['description']}"
         konu = ceviri.translate(konu_temp, dest='tr')
