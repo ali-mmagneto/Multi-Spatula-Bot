@@ -29,7 +29,7 @@ async def shazamtara(bot, message):
             print(lyrics)
             satir = "\n"
             sarki = f"{i['title']}" 
-            soz = '\n'.join(lyrics)
+            soz = ' '.join(lyrics)
             print(soz)
             link = telegraph.create_page(
                     f"{sarki} Sözleri :d",
