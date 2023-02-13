@@ -17,7 +17,7 @@ async def imdbgetir(bot, message):
         text = ""
         oyuncular = ""
         for actors in data["actor"]:
-            oyuncular += f"`{data['name']}` "
+            oyuncular += f"`{actors['name']}` "
         imdburl = f"{data['url']}"
         photo = f"{data['poster']}"
         text += f"**İsim**: [{data['name']}]({imdburl})\n**Orijinal Dil**: `{data['review']['inLanguage']}`\n**Konu**: `{data['description']}`\n**Türler**:`{data['genre']}`\n**Oyuncular**: {oyuncular} **Yapım Tarihi**: `{data['review']['dateCreated']}`\n**İmdb Puanı**: `{data['rating']['ratingValue']}`" 
