@@ -12,6 +12,9 @@ async def shazamtara(bot, message):
             splitpath = ses.split("/downloads/")
             sestemp = splitpath[1]
             aranacak = f"downloads/{sestemp}"
+            shazam = Shazam()
+            out = await shazam.recognize_song(aranacak)
+            print(out)
             await bot.send_audio(
                 chat_id = message.chat.id,
                 audio = aranacak)
