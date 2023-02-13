@@ -7,4 +7,4 @@ googletrans==3.1.0a0
 pillow
 shazamio
 telegraph
-tiktok_downloader
+tiktok_module
