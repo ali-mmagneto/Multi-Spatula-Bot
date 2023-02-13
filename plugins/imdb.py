@@ -16,7 +16,7 @@ async def imdbgetir(bot, message):
         data = json.loads(istek)
         imdburl = f"{data['url']}"
         photo = f"{data['poster']}"
-        text = f"**İsim**: [{data['name']}](imdburl)\n**Konu**: `{data['description']}`\n**Yapım Tarihi**: `{data['review']['dateCreated']}`\n**İmdb Puanı**: `{data['rating']['ratingValue']}`" 
+        text = f"**İsim**: [{data['name']}]({imdburl})\n**Orijinal Dil**: `{data['review']['inLanguage']}`\n**Konu**: `{data['description']}`\n**Türler**:`{data['genre']}`\n**Yapım Tarihi**: `{data['review']['dateCreated']}`\n**İmdb Puanı**: `{data['rating']['ratingValue']}`" 
         await bot.send_photo(
             chat_id = message.chat.id, 
             photo = photo, 
