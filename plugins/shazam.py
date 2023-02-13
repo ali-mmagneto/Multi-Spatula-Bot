@@ -21,9 +21,9 @@ async def shazamtara(bot, message):
             aranacak = f"downloads/{sestemp}"
             shazam = Shazam()
             out = await shazam.recognize_song(aranacak)
+            await mes.edit("`Buldum Bilgileri Getiriyorum..`") 
             bilgi = json.dumps(out)
             bilgiler = json.loads(bilgi)
-            await mes.edit("`Buldum Bilgileri Getiriyorum..`")
             print(bilgiler)
             i = bilgiler["track"]
             photo = f"{i['images']['coverart']}"
