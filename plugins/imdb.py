@@ -15,6 +15,7 @@ async def imdbgetir(bot, message):
         imdbbilgi = IMDB()
         istek = imdbbilgi.get_by_name(aranacak, tv=True)
         data = json.loads(istek)
+        caption = f"{istek}"
         text = ""
         oyuncular = ""
         for actors in data["actor"]:
@@ -29,5 +30,6 @@ async def imdbgetir(bot, message):
             chat_id = message.chat.id, 
             photo = photo, 
             caption = text)
+        await message.reply_text(caption)
     except Exception as e:
         await message.reply_text(f"`{e}`")
