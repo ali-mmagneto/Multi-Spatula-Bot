@@ -19,8 +19,12 @@ async def shazamtara(bot, message):
             bilgiler = json.loads(bilgi)
             print(bilgiler)
             i = bilgiler["track"]
-            text = f"Şarkı: {i['title']}\nSanatçı: {i['subtitle']}"
-            await message.reply_text(f"{text}")
+            photo = f"{i['images']['coverart']}"
+            text = f"**Şarkı**: [{i['title']}]({i['share']['href']})\n**Sanatçı**: {i['subtitle']}\n**Shazam İd**: {i['key']}\n"
+            await bot.send_photo(
+                chat_id = message.chat.id, 
+                photo = photo, 
+                caption = text)
         elif message.reply_to_message.video:
             return
     except Exception as e:
