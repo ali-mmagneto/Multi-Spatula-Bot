@@ -7,6 +7,7 @@ from PIL import Image
 @Client.on_message(filters.command('tmdb'))
 async def tmdbgetir(bot, message):
     try:
+        sayi = 2
         mes = message.text.split(" ", 1)
         if len(mes) == 1:
             await message.reply_text("Hatalı Kullanım :/ Doğru kullanım:\n\n`/tmdb Bullet Train`")
@@ -17,7 +18,9 @@ async def tmdbgetir(bot, message):
         response = requests.get(url)
         data = response.json()
         text = ""
+        say = 0
         for i in data["results"]:
+            say += 1
             poster = f"{i['poster_path']}"
             photo1 = f"https://image.tmdb.org/t/p/w1280{poster}"
             img = Image.open(requests.get(photo1, stream = True).raw)
@@ -28,5 +31,7 @@ async def tmdbgetir(bot, message):
                 photo = poster,
                 caption = text)
             text = ""
+            if int(say) == int(sayi):
+                return
     except Exception as e:
         await message.reply_text(f"`{e}`") 
