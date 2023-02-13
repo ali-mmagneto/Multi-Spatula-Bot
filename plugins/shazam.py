@@ -14,7 +14,8 @@ async def shazamtara(bot, message):
             sestemp = splitpath[1]
             aranacak = f"downloads/{sestemp}"
             shazam = Shazam()
-            bilgi = await shazam.recognize_song(aranacak)
+            out = await shazam.recognize_song(aranacak)
+            bilgi = json.dumps(out)
             print(bilgi)
             text = ""
             for i in bilgi["matches"]:
