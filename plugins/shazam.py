@@ -12,6 +12,7 @@ telegraph.create_account(short_name='deprembot')
 async def shazamtara(bot, message):
     try:
         if message.reply_to_message.audio:
+            mes = await message.reply_text("`Shazamda Arıyorum...`")
             ses = await bot.download_media(
                 message = message.reply_to_message,
                 file_name = f"{message.chat.id}.mp3")
@@ -22,6 +23,7 @@ async def shazamtara(bot, message):
             out = await shazam.recognize_song(aranacak)
             bilgi = json.dumps(out)
             bilgiler = json.loads(bilgi)
+            await mes.edit("`Buldum Bilgileri Getiriyorum..`")
             print(bilgiler)
             i = bilgiler["track"]
             photo = f"{i['images']['coverart']}"
@@ -37,6 +39,7 @@ async def shazamtara(bot, message):
                 chat_id = message.chat.id, 
                 photo = photo, 
                 caption = text)
+            await mes.delete()
         elif message.reply_to_message.video:
             return
     except Exception as e:
