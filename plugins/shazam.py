@@ -4,6 +4,7 @@ from shazamio import Shazam
 import json
 import telegraph
 from telegraph import Telegraph
+from tiktok_downloader import tikdown
 
 telegraph = Telegraph()
 telegraph.create_account(short_name='deprembot')
@@ -40,5 +41,9 @@ async def shazamtara(bot, message):
                 photo = photo, 
                 caption = text)
             await mes.delete()
+        elif message.reply_to_message.text:
+            aranacak = message.reply_to_message.text
+            d=tikdown(aranacak)
+            print(d)
     except Exception as e:
         await message.reply_text(f"`{e}`")
