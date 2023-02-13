@@ -1,6 +1,7 @@
 from pyrogram import Client, filters
 import asyncio
 from shazamio import Shazam
+import json
 
 @Client.on_message(filters.command('shazam'))
 async def shazamtara(bot, message):
@@ -14,10 +15,12 @@ async def shazamtara(bot, message):
             aranacak = f"downloads/{sestemp}"
             shazam = Shazam()
             out = await shazam.recognize_song(aranacak)
+            bilgi = json.loads(out)
             print(out)
-            await bot.send_audio(
-                chat_id = message.chat.id,
-                audio = aranacak)
+            text = ""
+            for i in bilgi["matches"]:
+                text += f"Şarkı: {i['title']}\nSanatçı: {i['subtitle']}"
+                await message.reply_text(f"{text}")
         elif message.reply_to_message.video:
             return
     except Exception as e:
