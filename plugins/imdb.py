@@ -15,9 +15,9 @@ async def imdbgetir(bot, message):
         istek = imdbbilgi.get_by_name(aranacak, tv=False)
         text = "" 
         say = 0
-        for i in istek:
+        for i in json.loads(istek)["name"]:
             say += 1
-            text += f"{i[0:1]}\n\n{i[0:4]}"
+            text += f"{i}"
             if int(say) == int(sayi):
                 await message.reply_text(text)
     except Exception as e:
