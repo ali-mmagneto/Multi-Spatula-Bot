@@ -16,7 +16,7 @@ async def imdbgetir(bot, message):
         text = "" 
         say = 0
         for i in json.loads(istek):
-            text += f"{i['name']}\n\n{i['description']}"
+            text += f"{i["name"]}\n\n{i["description"]}"
         await message.reply_text(text)
     except Exception as e:
         await message.reply_text(f"`{e}`")
