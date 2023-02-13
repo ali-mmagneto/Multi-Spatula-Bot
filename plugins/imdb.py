@@ -14,7 +14,7 @@ async def imdbgetir(bot, message):
         imdbbilgi = IMDB()
         istek = imdbbilgi.get_by_name(aranacak, tv=False)
         data = json.loads(istek)
-        text = f"{data['isim']}\n\{data['description']}" 
+        text = f"{data['name']}\n\{data['description']}" 
         await message.reply_text(text)
     except Exception as e:
         await message.reply_text(f"`{e}`")
