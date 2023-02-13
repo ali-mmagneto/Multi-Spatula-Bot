@@ -42,10 +42,5 @@ async def shazamtara(bot, message):
                 photo = photo, 
                 caption = text)
             await mes.delete()
-        elif message.reply_to_message.text:
-            aranacak = message.reply_to_message.text
-            dl = downloader.tiktok_downloader()
-            result = dl.musicaldown(url=f"{aranacak}",output_name="video.mp3")
-            await message.reply_audio("video.mp3")
     except Exception as e:
         await message.reply_text(f"`{e}`")
