@@ -17,7 +17,7 @@ async def shazamtara(bot, message):
             out = await shazam.recognize_song(aranacak)
             bilgi = json.dumps(out)
             print(bilgi)
-            i = bilgi["matches"]
+            i = bilgi["track"]
             text = f"Şarkı: {i['title']}\nSanatçı: {i['subtitle']}"
             await message.reply_text(f"{text}")
         elif message.reply_to_message.video:
