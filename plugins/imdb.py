@@ -21,7 +21,7 @@ async def imdbgetir(bot, message):
             oyuncular += f"`{actors['name']}`, "
         ceviri = Translator()
         konu_temp = f"{data['description']}"
-        konu = translator.translate(konu_temp, dest='tr')
+        konu = ceviri.translate(konu_temp, dest='tr')
         imdburl = f"{data['url']}"
         photo = f"{data['poster']}"
         text += f"**İsim**: [{data['name']}]({imdburl})\n\n**Orijinal Dil**: `{data['review']['inLanguage']}`\n\n**Konu**: `{konu}`\n\n**Türler**:`{data['genre']}`\n\n**Oyuncular**: {oyuncular}\n\n**Yapım Tarihi**: `{data['review']['dateCreated']}`\n\n**İmdb Puanı**: `{data['rating']['ratingValue']}/10`" 
