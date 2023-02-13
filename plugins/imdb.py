@@ -11,7 +11,7 @@ async def imdbgetir(bot, message):
         else:
             aranacak = mes[1]
         imdbbilgi = IMDB()
-        istek = imdbbilgi.get_by_name(<name>, tv=False)
+        istek = imdbbilgi.get_by_name(aranacak, tv=False)
         text = "" 
         for i in json.loads(istek):
             text += f"{i['name']}\n\n{i['description']}"
