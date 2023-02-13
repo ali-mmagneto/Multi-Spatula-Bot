@@ -12,7 +12,7 @@ async def tmdbgetir(bot, message):
             return
         else:
             aranacak = mes[1]
-        url = "https://api.themoviedb.org/3/search/movie?api_key=f2d91ec751ea4b19fbdc66650232b17b&query={aranacak}&language=tr" 
+        url = f"https://api.themoviedb.org/3/search/movie?api_key=f2d91ec751ea4b19fbdc66650232b17b&query={aranacak}&language=tr" 
         response = requests.get(url)
         data = response.json()
         text = ""
