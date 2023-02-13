@@ -4,7 +4,7 @@ from shazamio import Shazam
 import json
 import telegraph
 from telegraph import Telegraph
-from tiktok_downloader import tikdown
+from tiktok_module import downloader
 
 
 telegraph = Telegraph()
