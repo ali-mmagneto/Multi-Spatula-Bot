@@ -5,6 +5,7 @@ import json
 @Client.on_message(filters.command('imdb'))
 async def imdbgetir(bot, message):
     try:
+        sayi = 1
         mes = message.text.split(" ", 1)
         if len(mes) == 1:
             await message.reply_text("Hatalı Kullanım :/ Doğru kullanım:\n\n`/imdb Wandavision`")
@@ -13,8 +14,11 @@ async def imdbgetir(bot, message):
         imdbbilgi = IMDB()
         istek = imdbbilgi.get_by_name(aranacak, tv=False)
         text = "" 
+        say = 0
         for i in istek:
+            say += 1
             text += f"{i[0:1]}\n\n{i[0:4]}"
-        await message.reply_text(text)
+            if int(say) == int(sayi):
+                await message.reply_text(text)
     except Exception as e:
         await message.reply_text(f"`{e}`")
