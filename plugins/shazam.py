@@ -26,8 +26,8 @@ async def shazamtara(bot, message):
             satir = "\n"
             soz = satir.join(lyrics)
             link = telegraph.create_page(
-                    'Hey',
-                    html_content=f"{lyrics}")
+                    'Shazam Bot :d',
+                    html_content=soz)
             text = f"**Şarkı**: [{i['title']}]({i['share']['href']})\n**Sanatçı**: {i['subtitle']}\n**Shazam İd**: {i['key']}\n"
             await bot.send_photo(
                 chat_id = message.chat.id, 
