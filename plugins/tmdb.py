@@ -19,10 +19,9 @@ async def tmdbgetir(bot, message):
         for i in data["results"]:
             poster = f"{i['poster_path']}"
             photo = f"https://image.tmdb.org/t/p/w1280{poster}"
-            text += f"**İsim**: `{i['original_title']}` **{i['original_language']}\n\n**Konu**: `{i['overview']}`\n\n**Tmdb Puanı**: `{i['vote_average']}`/10\n\nOylayan Sayısı: `{i['vote_count']}`\n\n**Yayın Tarihi**: `{i['release_date']}`"
-            await bot.send_photo(
+            text += f"**İsim**: `{i['original_title']}` **{i['original_language']}\n\n**Konu**: `{i['overview']}`\n\n**Tmdb Puanı**: `{i['vote_average']}`/10\n\nOylayan Sayısı: `{i['vote_count']}`\n\n**Yayın Tarihi**: `{i['release_date']}`\n\n{photo}}"
+            await bot.send_message(
                 chat_id = message.chat.id,
-                photo = photo,
-                caption = text)
+                text = text)
     except Exception as e:
         await message.reply_text(f"`{e}`") 
