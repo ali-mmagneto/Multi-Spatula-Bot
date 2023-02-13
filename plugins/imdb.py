@@ -10,6 +10,7 @@ async def imdbgetir(bot, message):
         mes = message.text.split(" ", 1)
         if len(mes) == 1:
             await message.reply_text("Hatalı Kullanım :/ Doğru kullanım:\n\n`/imdb Wandavision`")
+            return
         else:
             aranacak = mes[1]
         imdbbilgi = IMDB()
