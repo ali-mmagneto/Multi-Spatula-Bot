@@ -2,6 +2,7 @@ from pyrogram import Client, filters
 import asyncio
 from shazamio import Shazam
 import json
+import telegraph
 
 @Client.on_message(filters.command('shazam'))
 async def shazamtara(bot, message):
@@ -22,6 +23,11 @@ async def shazamtara(bot, message):
             photo = f"{i['images']['coverart']}"
             lyrics = f"{i['sections'][1]['text']}"
             print(lyrics)
+            satir = "\n"
+            soz = satir.join(lyrics)
+            link = telegraph.create_page(
+                    'Hey',
+                    html_content=f"{lyrics}")
             text = f"**Şarkı**: [{i['title']}]({i['share']['href']})\n**Sanatçı**: {i['subtitle']}\n**Shazam İd**: {i['key']}\n"
             await bot.send_photo(
                 chat_id = message.chat.id, 
