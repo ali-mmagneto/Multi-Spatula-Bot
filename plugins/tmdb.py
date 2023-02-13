@@ -8,7 +8,7 @@ async def tmdbgetir(bot, message):
     try:
         mes = message.text.split(" ", 1)
         if len(mes) == 1:
-            await message.reply_text("Hatalı Kullanım :/ Doğru kullanım:\n\n`/imdb Bullet Train`")
+            await message.reply_text("Hatalı Kullanım :/ Doğru kullanım:\n\n`/tmdb Bullet Train`")
             return
         else:
             aranacak = mes[1]
