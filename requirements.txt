@@ -3,4 +3,4 @@ TgCrypto
 KekikSpatula
 unidecode
 PyMovieDb
-googletrans
+googletrans==3.1.0a0
