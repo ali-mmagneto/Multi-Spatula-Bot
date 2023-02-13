@@ -13,13 +13,14 @@ async def imdbgetir(bot, message):
             aranacak = mes[1]
         imdbbilgi = IMDB()
         istek = imdbbilgi.get_by_name(aranacak, tv=False)
-        datalar = json.loads(istek)
+        data = json.loads(istek)
         text = ""
-        for data in datalar[0]:
-            imdburl = f"{data['url']}"
-            photo = f"{data['poster']}"
-            oyuncular = f"`{data['actor']['name']}` "
-            text += f"**İsim**: [{data['name']}]({imdburl})\n**Orijinal Dil**: `{data['review']['inLanguage']}`\n**Konu**: `{data['description']}`\n**Türler**:`{data['genre']}`\n**Oyuncular**: {oyuncular} **Yapım Tarihi**: `{data['review']['dateCreated']}`\n**İmdb Puanı**: `{data['rating']['ratingValue']}`" 
+        oyuncular = ""
+        for actors in data["actor"]:
+            oyuncular += f"`{data['name']}` "
+        imdburl = f"{data['url']}"
+        photo = f"{data['poster']}"
+        text += f"**İsim**: [{data['name']}]({imdburl})\n**Orijinal Dil**: `{data['review']['inLanguage']}`\n**Konu**: `{data['description']}`\n**Türler**:`{data['genre']}`\n**Oyuncular**: {oyuncular} **Yapım Tarihi**: `{data['review']['dateCreated']}`\n**İmdb Puanı**: `{data['rating']['ratingValue']}`" 
         await bot.send_photo(
             chat_id = message.chat.id, 
             photo = photo, 
