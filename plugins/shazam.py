@@ -20,6 +20,8 @@ async def shazamtara(bot, message):
             print(bilgiler)
             i = bilgiler["track"]
             photo = f"{i['images']['coverart']}"
+            lyrics = f"{i['sections'][1]['text']}"
+            print(lyrics)
             text = f"**Şarkı**: [{i['title']}]({i['share']['href']})\n**Sanatçı**: {i['subtitle']}\n**Shazam İd**: {i['key']}\n"
             await bot.send_photo(
                 chat_id = message.chat.id, 
