@@ -31,7 +31,7 @@ async def shazamtara(bot, message):
             sarki = f"{i['title']}" 
             soz = ""
             for i in lyrics:
-                soz += f"i, end='\n'"
+                soz += f"{i}, end='\n'"
             print(soz)
             link = telegraph.create_page(
                     f"{sarki} Sözleri :d",
