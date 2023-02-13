@@ -15,7 +15,7 @@ async def shazamtara(bot, message):
             aranacak = f"downloads/{sestemp}"
             shazam = Shazam()
             bilgi = await shazam.recognize_song(aranacak)
-            print(out)
+            print(bilgi)
             text = ""
             for i in bilgi["matches"]:
                 text += f"Şarkı: {i['title']}\nSanatçı: {i['subtitle']}"
