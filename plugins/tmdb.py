@@ -2,6 +2,7 @@ from PyMovieDb import IMDB
 from pyrogram import Client, filters
 import requests
 import json
+from PIL import Image
 
 @Client.on_message(filters.command('tmdb'))
 async def tmdbgetir(bot, message):
@@ -18,10 +19,13 @@ async def tmdbgetir(bot, message):
         text = ""
         for i in data["results"]:
             poster = f"{i['poster_path']}"
-            photo = f"https://image.tmdb.org/t/p/w1280{poster}"
+            photo1 = f"https://image.tmdb.org/t/p/w1280{poster}"
+            img = Image.open(requests.get(photo1, stream = True).raw)
+            img.save(f"{poster}")
             text += f"**İsim**: `{i['original_title']}` **{i['original_language']}\n\n**Konu**: `{i['overview']}`\n\n**Tmdb Puanı**: `{i['vote_average']}`/10\n\nOylayan Sayısı: `{i['vote_count']}`\n\n**Yayın Tarihi**: `{i['release_date']}`\n\n{photo}"
-            await bot.send_message(
+            await bot.send_photo(
                 chat_id = message.chat.id,
-                text = text)
+                photo = poster,
+                caption = text)
     except Exception as e:
         await message.reply_text(f"`{e}`") 
